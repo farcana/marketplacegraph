@@ -1,0 +1,131 @@
+type AskCancel @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  seller: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AskNew @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  seller: Bytes! # address
+  tokenId: BigInt! # uint256
+  askPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AskUpdate @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  seller: Bytes! # address
+  tokenId: BigInt! # uint256
+  askPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CollectionClose @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CollectionNew @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  creator: Bytes! # address
+  whitelistChecker: Bytes! # address
+  tradingFee: BigInt! # uint256
+  creatorFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CollectionUpdate @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  creator: Bytes! # address
+  whitelistChecker: Bytes! # address
+  tradingFee: BigInt! # uint256
+  creatorFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewAdminAndTreasuryAddresses @entity(immutable: true) {
+  id: Bytes!
+  admin: Bytes! # address
+  treasury: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewMinimumAndMaximumAskPrices @entity(immutable: true) {
+  id: Bytes!
+  minimumAskPrice: BigInt! # uint256
+  maximumAskPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NonFungibleTokenRecovery @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RevenueClaim @entity(immutable: true) {
+  id: Bytes!
+  claimer: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenRecovery @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Trade @entity(immutable: true) {
+  id: Bytes!
+  collection: Bytes! # address
+  tokenId: BigInt! # uint256
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  askPrice: BigInt! # uint256
+  netPrice: BigInt! # uint256
+  withBNB: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

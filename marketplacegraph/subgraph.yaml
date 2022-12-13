@@ -1,0 +1,59 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ERC721NFTMarketV1
+    network: bsc
+    source:
+      address: "0x0eBF17832B9C26a538d4C66854306f5126a100c2"
+      abi: ERC721NFTMarketV1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AskCancel
+        - AskNew
+        - AskUpdate
+        - CollectionClose
+        - CollectionNew
+        - CollectionUpdate
+        - NewAdminAndTreasuryAddresses
+        - NewMinimumAndMaximumAskPrices
+        - NonFungibleTokenRecovery
+        - OwnershipTransferred
+        - RevenueClaim
+        - TokenRecovery
+        - Trade
+      abis:
+        - name: ERC721NFTMarketV1
+          file: ./abis/ERC721NFTMarketV1.json
+      eventHandlers:
+        - event: AskCancel(indexed address,indexed address,indexed uint256)
+          handler: handleAskCancel
+        - event: AskNew(indexed address,indexed address,indexed uint256,uint256)
+          handler: handleAskNew
+        - event: AskUpdate(indexed address,indexed address,indexed uint256,uint256)
+          handler: handleAskUpdate
+        - event: CollectionClose(indexed address)
+          handler: handleCollectionClose
+        - event: CollectionNew(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleCollectionNew
+        - event: CollectionUpdate(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleCollectionUpdate
+        - event: NewAdminAndTreasuryAddresses(indexed address,indexed address)
+          handler: handleNewAdminAndTreasuryAddresses
+        - event: NewMinimumAndMaximumAskPrices(uint256,uint256)
+          handler: handleNewMinimumAndMaximumAskPrices
+        - event: NonFungibleTokenRecovery(indexed address,indexed uint256)
+          handler: handleNonFungibleTokenRecovery
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RevenueClaim(indexed address,uint256)
+          handler: handleRevenueClaim
+        - event: TokenRecovery(indexed address,uint256)
+          handler: handleTokenRecovery
+        - event: Trade(indexed address,indexed uint256,indexed address,address,uint256,uint256,bool)
+          handler: handleTrade
+      file: ./src/erc-721-nft-market-v-1.ts
